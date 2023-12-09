@@ -225,7 +225,56 @@ const littleCountries = {
     "VG": { "name": "Vierges Britanniques", "capital": "Road Town", "continent": "Amérique" }
   };
 
+  const littleCountriesQuiz = {
+    "AI": { "name": "Anguilla", "capital": "The Valley", "continent": "Amérique" },
+    "AB": { "name": "Antigua et Barbuda", "capital": "Saint John's", "continent": "Amérique" },
+    "AW": { "name": "Aruba", "capital": "Oranjestad", "continent": "Amérique" },
+    "BH": { "name": "Bahreïn", "capital": "Manama", "continent": "Asie" },
+    "BB": { "name": "Barbade", "capital": "Bridgetown", "continent": "Amérique" },
+    "BM": { "name": "Bermudes", "capital": "Hamilton", "continent": "Amérique" },
+    "BQ": { "name": "Bonaire", "capital": "Kralendijk", "continent": "Amérique" },
+    "CY": { "name": "Caïmans", "capital": "George Town", "continent": "Amérique" },
+    "CN": { "name": "Canaries", "capital": "Santa Cruz/Las Palmas", "continent": "Afrique" },
+    "CV": { "name": "Cap Vert", "capital": "Praia", "continent": "Afrique" },
+    "CS": { "name": "Comores", "capital": "Moroni", "continent": "Afrique" },
+    "CW": { "name": "Curaçao", "capital": "Willemstad", "continent": "Amérique" },
+    "DM": { "name": "Dominique", "capital": "Roseau", "continent": "Amérique" },
+    "FE": { "name": "Féroé", "capital": "Tórshavn", "continent": "Europe" },
+    "GD": { "name": "Grenade", "capital": "Saint-Georges", "continent": "Amérique" },
+    "GU": { "name": "Guam", "capital": "Hagåtña", "continent": "Océanie" },
+    "GP": { "name": "Guadeloupe", "capital": "Pointe-à-Pitre", "continent": "Amérique" },
+    "HI": { "name": "Hawaï", "capital": "Honolulu", "continent": "Amérique" },
+    "MV": { "name": "Maldives", "capital": "Malé", "continent": "Asie" },
+    "MA": { "name": "Malte", "capital": "La Valette", "continent": "Europe" },
+    "NM": { "name": "Mariannes du Nord", "capital": "Saipan", "continent": "Océanie" },
+    "MH": { "name": "Marshall", "capital": "Delap-Uliga-Darrit", "continent": "Océanie" },
+    "MQ": { "name": "Martinique", "capital": "Fort de France", "continent": "Amérique" },
+    "YT": { "name": "Mayotte", "capital": "Mamoudzou", "continent": "Afrique" },
+    "FM": { "name": "Micronésie", "capital": "Palikir", "continent": "Océanie" },
+    "MS": { "name": "Montserrat", "capital": "Plymouth", "continent": "Amérique" },
+    "NR": { "name": "Nauru", "capital": "Yaren", "continent": "Océanie" },
+    "PW": { "name": "Palaos", "capital": "Ngerulmud", "continent": "Océanie" },
+    "FP": { "name": "Polynésie", "capital": "Papeete", "continent": "Océanie" },
+    "RE": { "name": "Réunion", "capital": "Saint-Denis", "continent": "Afrique" },
+    "BL": { "name": "Saint-Barthélemy", "capital": "Gustavia", "continent": "Amérique" },
+    "ST": { "name": "Saint-Christophe-et-Nièves", "capital": "Basseterre", "continent": "Amérique" },
+    "LC": { "name": "Sainte-Lucie", "capital": "Castries", "continent": "Amérique" },
+    "VC": { "name": "Saint-Vincent-et-les-Grenadines", "capital": "Kingstown", "continent": "Amérique" },
+    "WS": { "name": "Samoa", "capital": "Apia", "continent": "Océanie" },
+    "AS": { "name": "Samoa Américaines", "capital": "Pago Pago", "continent": "Océanie" },
+    "SP": { "name": "São Tomé-et-Principe", "capital": "São Tomé", "continent": "Afrique" },
+    "SC": { "name": "Seychelles", "capital": "Victoria", "continent": "Afrique" },
+    "TO": { "name": "Tonga", "capital": "Nuku'alofa", "continent": "Océanie" },
+    "TR": { "name": "Trinité-et-Tobago", "capital": "Port-d'Espagne", "continent": "Amérique" },
+    "TK": { "name": "Turques-et-Caïques", "capital": "Cockburn Town", "continent": "Amérique" },
+    "TV": { "name": "Tuvalu", "capital": "Funafuti", "continent": "Océanie" },
+    "UV": { "name": "Vierges Américaines", "capital": "Charlotte-Amélie", "continent": "Amérique" },
+    "VG": { "name": "Vierges Britanniques", "capital": "Road Town", "continent": "Amérique" }
+  };
+
 // console.log("Taille countries : " + Object.keys(countries).length);
 // console.log("Taille littleCountries : " + Object.keys(littleCountries).length);
 
 const allCountries = { ...countries, ...littleCountries };
+
+const allCountriesQuiz = { ...countries, ...littleCountriesQuiz };

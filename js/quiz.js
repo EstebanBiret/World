@@ -35,17 +35,13 @@ const resultsReplay = document.getElementById("replay-quiz");
 const resultsHome = document.getElementById("home-quiz");
 const resultsImage = document.getElementById("results-image");
 
-let countriesCopyQuiz = { ...allCountries };
+let countriesCopyQuiz = { ...allCountriesQuiz };
+// delete countriesCopyQuiz["MF"];
+
 const quizKeys = Object.keys(countriesCopyQuiz);
 
-// const question = document.getElementById("current-flag");
 let answer = null;
-// let currentFlag = 0;
-// const numberOfFlags = 30;
-
-// let correctCountriesFound = [];
 let record = $.cookie('quizRecord') || 0;
-
 let errors = 0;
 let flagsFound = 0;
 
@@ -57,7 +53,7 @@ function getRandomCountryCopy() {
 }
 
 function getRandomCountry() {
-    const countryKeys = Object.keys(allCountries);
+    const countryKeys = Object.keys(allCountriesQuiz);
     const randomKey = countryKeys[Math.floor(Math.random() * countryKeys.length)];
     return randomKey;
 }
@@ -67,7 +63,7 @@ function generate4RandomProposals(correctCountry) {
     const proposals = [correctCountry.name];
     while (proposals.length < 4) {
         const r = getRandomCountry();
-        const randomCountry = allCountries[r];
+        const randomCountry = allCountriesQuiz[r];
         if (!proposals.includes(randomCountry.name)) {
             proposals.push(randomCountry.name);
         }
@@ -87,18 +83,11 @@ function shuffleArray(array) {
 function startQuiz() {
     mode4ScreenContent.classList.add("visible");
     backToHomeScreenFrom4Button.classList.add('visible');
-    // question.innerHTML = `Drapeaux : ${currentFlag}/${numberOfFlags}`;
     
     let correctCountry = getRandomCountryCopy();
     delete countriesCopyQuiz[correctCountry];
-
-    // Ajouter le pays correct au tableau
-    // correctCountriesFound.push(correctCountry);
-    // console.log(correctCountriesFound);
-
-    
-    answer = allCountries[correctCountry].name;
-    const proposals = generate4RandomProposals(allCountries[correctCountry]);
+    answer = allCountriesQuiz[correctCountry].name;
+    const proposals = generate4RandomProposals(allCountriesQuiz[correctCountry]);
 
     displayFlag(correctCountry);
     displayProposals(proposals);
@@ -114,7 +103,6 @@ function displayFlag(correctCountry) {
     quizFlag.src = `flags/${correctCountry.toLowerCase()}.png`;
 }
 
-//array
 function displayProposals(proposals) {
     allProposals.classList.add("fade-in-quiz")
 
@@ -125,12 +113,6 @@ function displayProposals(proposals) {
 }
 
 function nextFlag() {
-    
-    // if ((currentFlag+1)===numberOfFlags) {
-    //     console.log("Max des questions atteint !");
-    // }
-    // else {
-
         allProposals.classList.add("fade-out-quiz");
         flag.style.display = "none";
         title.classList.add("fade-out-quiz");
@@ -145,42 +127,18 @@ function nextFlag() {
             }
             else {
                 let correctCountry = getRandomCountryCopy();
-
-                // Vérifier si le pays est déjà tombé
-                // while (correctCountriesFound.includes(correctCountry)) {
-                //     if (correctCountriesFound.length === Object.keys(allCountries).length) {
-                //         console.log("plus de drapeaux !")
-                //         displayResults();
-                //     }
-
-                //     console.log("déjà tombé");
-                //     correctCountry = getRandomCountry();
-                // }
-
                 delete countriesCopyQuiz[correctCountry];
-
-
-                // Ajouter le pays correct au tableau
-                // correctCountriesFound.push(correctCountry);
-                // console.log(correctCountriesFound);
-
-                answer = allCountries[correctCountry].name;
-                const proposals = generate4RandomProposals(allCountries[correctCountry]);
-
+                answer = allCountriesQuiz[correctCountry].name;
+                const proposals = generate4RandomProposals(allCountriesQuiz[correctCountry]);
                 title.classList.add("fade-in-quiz");
                 displayFlag(correctCountry);
                 displayProposals(proposals);
             }
-
         }, 100);
-    // }
-
-    // currentFlag++;
-    // question.innerHTML = `Drapeaux : ${currentFlag}/${numberOfFlags}`;
 }
 
 function displayError(answer) {
-    goodFlag.src = `flags/${findISOByCountryName(answer)}.png`;
+    goodFlag.src = `flags/${findISOByCountryName(answer).toLowerCase()}.png`;
     nameGoodFlag.innerHTML = answer;
 
     errors++;
@@ -200,7 +158,6 @@ function closeError() {
 function checkQuiz(answer, proposal) {
     if (answer===proposal) {
         audioXp.play();
-        // console.log("Trouvé !");
         flagsFound++;
         nextFlag();
     }
@@ -259,7 +216,7 @@ function resetQuiz() {
     audioClick.play();
     resetTimer();
     correctCountriesFound = [];
-    countriesCopyQuiz = { ...allCountries };
+    countriesCopyQuiz = { ...allCountriesQuiz };
     errors = 0;
     flagsFound = 0;
     quizFlag.src = "";
@@ -275,7 +232,6 @@ function replayQuiz() {
 
 function backToHome() {
     resetQuiz();
-    // console.log('Retour au menu principal');
     backToHomeScreenFrom4Button.classList.remove('visible');
     homeScreen.classList.remove('hidden');
     mode4Screen.classList.remove('visible');

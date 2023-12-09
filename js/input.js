@@ -88,7 +88,7 @@ function displayInformations(id_country, country) {
     inInformations = true;
     $('#ui-id-1').css("display", "none");    
     var img = document.createElement("img");
-    img.src = "flags/" + id_country + ".png";
+    img.src = "flags/" + id_country.toLowerCase() + ".png";
     discoverCountryFlag.appendChild(img);
     discoverCountryName.innerHTML = country["name"];
     discoverCountryCapital.innerHTML = 'Capitale : ' + country["capital"];
