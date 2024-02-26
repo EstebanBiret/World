@@ -33,6 +33,8 @@ circle {
   align-items: center;
   justify-content: center;
   background: url("images/bg.png");
+  background-size: cover;
+
 
   & p{
     background-color: transparent;
